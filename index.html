@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    background-color: lightyellow;
+    transition: 0.3s;
+  }
+  .bgcolor--blue{
+    background-color: rgb(38, 81, 95);
+  }
+  button{
+    width: 200px;height: 80px;background-color: rgb(38, 81, 95); border: none;
+    color: white;
+  }
+</style>
+<body>
+  
+  <button class="btn_bg">배경색상변경</button>
+
+  <script>
+    // .btn_bg을 눌렀을 때 btnBg를 할당함
+    const btnnBg = document.querySelector('.btn_bg');
+    // addEventlistner('이벤트', 실행함수)
+    btnnBg.addEventListener('click',function(){
+      document.body.classList.toggle('bgcolor--blue');
+      
+      
+      
+      // console.log('버튼클릭');
+    });
+  </script>
+
+</body>
+</html>
