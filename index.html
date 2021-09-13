@@ -14,25 +14,39 @@
   .bgcolor--blue{
     background-color: rgb(38, 81, 95);
   }
-  button{
-    width: 200px;height: 80px;background-color: rgb(38, 81, 95); border: none;
-    color: white;
-  }
+.bgcolor--gray{
+  background-color: rgb(219, 215, 209);
+}
+
 </style>
 <body>
-  
-  <button class="btn_bg">배경색상변경</button>
 
+<!-- shift+del = 한줄삭제, alt+방향키 = 줄 바꾸기 , alt+shift+아래화살표 = 복사-->
+
+  <div class="btns">
+    <button class="btn_toggle">배경색상변경 토글버튼</button>
+    <button class="btn--reset">배경색상리셋</button>
+    <button class="btn--bggray">배경색상변경 그레이</button>
+  
+  </div>
+  
   <script>
     // .btn_bg을 눌렀을 때 btnBg를 할당함
-    const btnnBg = document.querySelector('.btn_bg');
+    const btnnToggle = document.querySelector('.btn_toggle');
     // addEventlistner('이벤트', 실행함수)
-    btnnBg.addEventListener('click',function(){
+    btnnToggle.addEventListener('click',function(){
       document.body.classList.toggle('bgcolor--blue');
-      
-      
-      
       // console.log('버튼클릭');
+    });
+
+    const btnGray = document.querySelector('.btn--bggray');
+    btnGray.addEventListener('click',function(){
+      document.body.classList.toggle('bgcolor--gray');
+    });
+
+    const btnReset = document.querySelector('.btn--reset');
+    btnReset.addEventListener('click',function(){
+      document.body.classList.remove('bgcolor--blue','bgcolor--gray');
     });
   </script>
 
