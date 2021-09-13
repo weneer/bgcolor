@@ -8,19 +8,24 @@
 </head>
 <style>
   body{
-    background-color: lightyellow;
-    transition: 0.3s;
+    transition: all 0.3s;
   }
   .bgcolor--blue{
-    background-color: rgb(38, 81, 95);
+    background-color: #050819;
   }
 .bgcolor--gray{
-  background-color: rgb(219, 215, 209);
+  background-color: #dee4d8;
 }
+
+
 button{width: 200px;height: 80px; border: none;}
-.btn_toggle{background-color: rgb(38, 81, 95); color: white;}
+.btn_toggle{background-color: #050819; color: white;}
 .btn--reset{background-color: white;}
-.btn--bggray{background-color: rgb(219, 215, 209);}
+.btn--bggray{background-color: #dee4d8;}
+.btn--bgimg{background-color: #00646e; color: white;}
+
+.bg--img{background-image:url('yellow-bells-4382715.jpg');
+background-size: cover;}
 
 </style>
 <body>
@@ -31,7 +36,7 @@ button{width: 200px;height: 80px; border: none;}
     <button class="btn_toggle">배경색상변경 토글버튼</button>
     <button class="btn--reset">배경색상리셋</button>
     <button class="btn--bggray">배경색상변경 그레이</button>
-  
+    <button class="btn--bgimg">배경이미지</button>
   </div>
   
   <script>
@@ -41,15 +46,23 @@ button{width: 200px;height: 80px; border: none;}
     btnnToggle.addEventListener('click',function(){
       document.body.classList.toggle('bgcolor--blue');
       // console.log('버튼클릭');
+      document.body.classList.remove('bgcolor--gray','bg--img');
     });
 
     const btnGray = document.querySelector('.btn--bggray');
     btnGray.addEventListener('click',function(){
       document.body.classList.toggle('bgcolor--gray');
+      document.body.classList.remove('bgcolor--blue','bg--img');
     });
 
     const btnReset = document.querySelector('.btn--reset');
     btnReset.addEventListener('click',function(){
+      document.body.classList.remove('bgcolor--blue','bgcolor--gray','bg--img');
+    });
+
+    const btnBgImg = document.querySelector('.btn--bgimg');
+    btnBgImg.addEventListener('click',function(){
+      document.body.classList.add('bg--img');
       document.body.classList.remove('bgcolor--blue','bgcolor--gray');
     });
   </script>
