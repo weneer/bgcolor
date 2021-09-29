@@ -7,36 +7,48 @@
   <title>Document</title>
 </head>
 <style>
+
   body{
-    transition: all 0.3s;
+    transition:1s;
+    margin: 0;
   }
+
   .bgcolor--blue{
     background-color: #050819;
   }
-.bgcolor--gray{
+  .bgcolor--gray{
   background-color: #dee4d8;
-}
+  }
 
+  .btns{position: relative; top: 60px;width: 600px;padding: 100px;
+  margin: auto; text-align: center;}
 
-button{width: 200px;height: 80px; border: none;}
-.btn_toggle{background-color: #050819; color: white;}
-.btn--reset{background-color: white;}
-.btn--bggray{background-color: #dee4d8;}
-.btn--bgimg{background-color: #00646e; color: white;}
+/* .bg--img{background-image:url('yellow-bells-4382715.jpg');
+background-size: cover; transition: all 0.3s; } */
 
-.bg--img{background-image:url('yellow-bells-4382715.jpg');
-background-size: cover;}
+.bg__img{
+  margin: 0; position: absolute;
+  width: 100vw; height: 100vh;
+  background:url('yellow-bells-4382715.jpg');
+  transition: 1s;
+  opacity: 0;}
+
+.bg__img--show{opacity: 1;}
 
 </style>
 <body>
 
 <!-- shift+del = 한줄삭제, alt+방향키 = 줄 바꾸기 , alt+shift+아래화살표 = 복사-->
 
+
+
+  <div class="bg__img bg__img--show"></div></div>
+
   <div class="btns">
-    <button class="btn_toggle">배경색상변경 토글버튼</button>
-    <button class="btn--reset">배경색상리셋</button>
-    <button class="btn--bggray">배경색상변경 그레이</button>
-    <button class="btn--bgimg">배경이미지</button>
+      <button class="btn_toggle">배경색상변경 토글버튼</button>
+      <button class="btn--reset">배경색상리셋</button>
+      <button class="btn--bggray">배경색상변경 그레이</button>
+      <button class="btn--bgimg">배경이미지</button>
   </div>
   
   <script>
@@ -46,24 +58,28 @@ background-size: cover;}
     btnnToggle.addEventListener('click',function(){
       document.body.classList.toggle('bgcolor--blue');
       // console.log('버튼클릭');
-      document.body.classList.remove('bgcolor--gray','bg--img');
+      bgContainer.classList.remove('bg__img--show');
+      document.body.classList.remove('bgcolor--gray');
     });
 
     const btnGray = document.querySelector('.btn--bggray');
     btnGray.addEventListener('click',function(){
       document.body.classList.toggle('bgcolor--gray');
-      document.body.classList.remove('bgcolor--blue','bg--img');
+      bgContainer.classList.remove('bg__img--show');
+      document.body.classList.remove('bgcolor--blue');
     });
 
     const btnReset = document.querySelector('.btn--reset');
     btnReset.addEventListener('click',function(){
-      document.body.classList.remove('bgcolor--blue','bgcolor--gray','bg--img');
+      bgContainer.classList.remove('bg__img--show');
+      document.body.classList.remove('bgcolor--blue','bgcolor--gray');
     });
 
+    const bgContainer = document.querySelector('.bg__img');
     const btnBgImg = document.querySelector('.btn--bgimg');
     btnBgImg.addEventListener('click',function(){
-      document.body.classList.add('bg--img');
-      document.body.classList.remove('bgcolor--blue','bgcolor--gray');
+      // document.body.classList.add('bg--img');
+      bgContainer.classList.add('bg__img--show');
     });
   </script>
 
